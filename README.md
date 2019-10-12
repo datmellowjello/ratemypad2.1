@@ -1,6 +1,8 @@
 # Rate My Pad 
 
-The best resource to find honest reviews and helpful data on homes near you!
+The best resource to find honest reviews and helpful data on homes for rent near you!  
+
+Our website is built using React, Mysql/JawsDB, NodeJs, and Express.  
 
 ## Group Members & Roles
 
