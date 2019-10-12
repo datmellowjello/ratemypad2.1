@@ -13,14 +13,19 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Reeves93/ratemypad2.1.git"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.19.3"
   },
+  "homepage": "https://github.com/Reeves93/ratemypad2.1#readme",
   "dependencies": {
-    "express": "^4.16.3",
+    "express": "^4.17.1",
     "if-env": "^1.0.4"
   }
 }
