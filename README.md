@@ -16,7 +16,7 @@ In charge of writing code for navbar, listing page, and address validation.
 
 Renee Reeves: DB manager 
 ```
-In charge of setting up the database and configuring our application with Mysql/JawsDB. Writing code for comment ratings and search results display.
+In charge of setting up the database and configuring our application with Mysql/JawsDB. Writing code for comment ratings and search results display. Also in charge of QA.
 
 ```
 
