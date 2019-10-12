@@ -9,7 +9,7 @@ David Bridges: Project manager
 In charge of project managment.  Assiting in dev ops with homepage, search form, authentication through Oauth / Passport.
 ```
 
-Tali: Dev Ops
+Tali Ngatuvai: Dev Ops
 ```
 In charge of writing code for navbar, listing page, and address validation.
 ```
