@@ -1,10 +1,14 @@
 import React from "react";
 import Results from "./pages/Results";
+import Nav from "./components/Nav";
+import Newnav from "./components/Nav"
 import "./App.css";
+
 
 function App () {
   return (
     <div>
+      <Newnav />
       <Results />
     </div>
   );
