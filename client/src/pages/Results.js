@@ -26,10 +26,10 @@ class Results extends Component {
             {this.state.places.length ? (
               <List>
                 {this.state.places.map(places => (
-                  <ListItem key={places._id}>
+                  <ListItem className="places" onClick={() => places.clickedLink(places.id)} key={places._id}>
                     <a href={"/places/" + places._id}>
                       <strong>
-                        {places.city}, {places.name}, Rating: {places.ratingAvg}
+                        {places.city}, {places.name}, Rating: {places.ratingAvg}, {places.id}
                       </strong>
                     </a>
                   </ListItem>

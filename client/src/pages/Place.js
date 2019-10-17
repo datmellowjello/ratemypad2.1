@@ -1,58 +1,45 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import API from "../utils/API";
+import Jumbotron from "../components/Jumbotron";
 import DeleteBtn from "../components/DeleteBtn";
 
-class Placecard extends Component {
-    state = {
-      places: []
-    };
-  
-    componentDidMount() {
-      this.loadPlaces();
-    }
-  
-    loadPlaces = () => {
-      API.getPlaces()
-        .then(res => this.setState({ places: res.data }))
-        .catch(err => console.log(err));
-    };
-  
-    render() {
-      return (
-        <Container fluid>
-          <Row>
-            <Col size="md-12">           
-              {this.state.places.length ? (
-                <List>
-                  {this.state.places.map(places => (
-                    <ListItem key={places._id}>
-                      <a href={"/places/" + places._id}>
-                        <strong>
-                          {places.name}
-                          {places.streetAddress}
-                          {places.city}
-                          {places.state}
-                          {places.zip}
-                          {places.phone}
-                          {places.propType}
-                          {places.propMgr}
-                          {places.URL}
-                          {places.ratingAvg}
-                        </strong>
-                      </a>
-                    </ListItem>
-                  ))}
-                  <DeleteBtn />
-                </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
-            </Col>
-          </Row>
-        </Container>
-      );
-    }
+class Place extends Component {
+  state = {
+    place: {}
+  };
+
+  componentDidMount() {
+    API.getPlace(this.props.match.params.id)
+      .then(res => this.setState({ place: res.data }))
+      .catch(err => console.log(err));
   }
-  
-  export default Place;
-  
+
+  render() {
+    return (
+      <div>
+        <Jumbotron>
+          <h1>{this.state.place.name}</h1>
+        </Jumbotron>
+        <div>
+          <article>
+            <p>
+              {this.state.place.streetAddress},{this.state.place.city},
+              {this.state.place.state},{this.state.place.zip}
+            </p>
+          </article>
+          <article>
+            <p>{this.state.place.phone}</p>
+          </article>
+          <article>
+            <p>Property Manager: {this.state.place.propMgr}</p>
+          </article>
+          <article>
+            <p>Website: {this.state.place.URL}</p>
+          </article>
+        </div>
+      </div>
+    );
+  }
+}
+export default Place;
