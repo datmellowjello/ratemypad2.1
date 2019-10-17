@@ -1,6 +1,5 @@
 import React, { Component} from "react";
 import API from "../utils/API";
-import DeleteBtn from "../components/DeleteBtn";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 
@@ -30,10 +29,9 @@ class Results extends Component {
                   <ListItem key={places._id}>
                     <a href={"/places/" + places._id}>
                       <strong>
-                        {places.name}
+                        {places.city}, {places.name}, Rating: {places.ratingAvg}
                       </strong>
                     </a>
-                    <DeleteBtn />
                   </ListItem>
                 ))}
               </List>
