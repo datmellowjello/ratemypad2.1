@@ -33,6 +33,7 @@
     "mysql2": "^1.7.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
+    "react-bootstrap": "^1.0.0-beta.14",
     "sequelize": "^5.19.6"
   }
 }
