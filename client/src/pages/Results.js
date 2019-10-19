@@ -26,8 +26,8 @@ class Results extends Component {
             {this.state.places.length ? (
               <List>
                 {this.state.places.map(places => (
-                  <ListItem className="places" onClick={() => places.clickedLink(places.id)} key={places._id}>
-                    <a href={"/places/" + places._id}>
+                  <ListItem className="places" onClick={() => places.clickedLink(places.id)} key={places.id}>
+                    <a href={"/places/" + places.id}>
                       <strong>
                         {places.city}, {places.name}, Rating: {places.ratingAvg}, {places.id}
                       </strong>

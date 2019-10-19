@@ -1,15 +1,16 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import Suggestions from 'components/Suggestions'
-import API from '../utils/API'
-
-
+import React, { Component } from 'react';
+import API from '../utils/API';
+import Container from "../components/Container";
+import SearchForm from "../components/SearchForm";
+import SearchResults from "../components/SearchResults";
+import Alert from "../components/Alert";
 
 class Search extends Component {
   state = {
-    query: '',
-    results: []
-  }
+    search: "",
+    results: [],
+    error: ""
+  };
 
   getInfo = () => {
     // axios.get(`${API_URL}?api_key=${API_KEY}&prefix=${this.state.query}&limit=7`)
@@ -34,18 +35,18 @@ class Search extends Component {
     })
   }
 
-  render() {
-    return (
-      <form>
-        <input
-          placeholder="Search for..."
-          ref={input => this.search = input}
-          onChange={this.handleInputChange}
-        />
-        <Suggestions results={this.state.results} />
-      </form>
-    )
-  }
+  // render() {
+  //   return (
+  //     <form>
+  //       <input
+  //         placeholder="Search for..."
+  //         ref={input => this.search = input}
+  //         onChange={this.handleInputChange}
+  //       />
+  //       <Suggestions results={this.state.results} />
+  //     </form>
+  //   )
+  // }
 }
 
 export default Search
