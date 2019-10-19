@@ -1,4 +1,6 @@
-var db = require("../../models");
+const axios = require("axios");
+const router = require ("express").Router();
+const db = require("../../models");
 
 let refreshRatingAvg = (placeid) => {
   db.comments.findAll({
@@ -40,6 +42,13 @@ module.exports = function (app) {
     // Read
     app.get(`/api/${arr[i]}`, function (req, res) {
       db[arr[i]].findAll({})
+        .then(function (table) {
+          res.json(table);
+        });
+    });
+
+    app.get(`/api/${arr[i]}/:id`, function (req, res) {
+      db[arr[i]].findByPk(req.params.id)
         .then(function (table) {
           res.json(table);
         });

@@ -1,44 +1,64 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import API from "../utils/API";
 import Jumbotron from "../components/Jumbotron";
+import { Col, Row, Container } from "../components/Grid";
+import { List, ListItem } from "../components/List";
+// import Container from "../components/Container";
+// import Col from "../components/Col";
+// import Row from "../components/Row";
 import DeleteBtn from "../components/DeleteBtn";
 
 class Place extends Component {
   state = {
-    place: {}
+    places: []
   };
 
   componentDidMount() {
-    API.getPlace(this.props.match.params.id)
-      .then(res => this.setState({ place: res.data }))
-      .catch(err => console.log(err));
+    this.loadPlace();
   }
+
+  loadPlace = () => {
+    API.getPlace(this.props.match.params.id)
+      .then(res => this.setState({ places: res.data }))
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
-      <div>
-        <Jumbotron>
-          <h1>{this.state.place.name}</h1>
-        </Jumbotron>
-        <div>
-          <article>
-            <p>
-              {this.state.place.streetAddress},{this.state.place.city},
-              {this.state.place.state},{this.state.place.zip}
-            </p>
-          </article>
-          <article>
-            <p>{this.state.place.phone}</p>
-          </article>
-          <article>
-            <p>Property Manager: {this.state.place.propMgr}</p>
-          </article>
-          <article>
-            <p>Website: {this.state.place.URL}</p>
-          </article>
-        </div>
-      </div>
+      <Container fluid>
+        <Row>
+          <Col size="md-12">
+            <Jumbotron>
+              <h1>{this.state.places.name}</h1>
+              <h2>Rating: {this.state.places.ratingAvg}</h2>
+              <Row>
+            <a href={this.state.places.URL}>{this.state.places.URL}</a>
+          </Row>
+            </Jumbotron>
+          </Col>
+        </Row>
+        <Col size="md-12">
+          <Row>
+            <h3>{this.state.places.streetAddress}</h3>
+          </Row>
+          <Row>
+            <h3>
+              {this.state.places.city}, {this.state.places.state},{" "}
+              {this.state.places.zip}
+            </h3>
+          </Row>
+          <Row>
+            <h3>
+              Property Manager: {this.state.places.propMgr}
+            </h3>
+          </Row>
+          <Row>
+            <h3>
+              Contact Phone: {this.state.places.phone}
+            </h3>
+          </Row>
+        </Col>
+      </Container>
     );
   }
 }
