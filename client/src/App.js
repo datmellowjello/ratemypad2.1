@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Results from "./pages/Results";
 import Search from "./pages/Search";
-import Newnav from "./components/Nav";
+import Newnav from "./components/Newnav";
 
 import Place from "./pages/Place";
 

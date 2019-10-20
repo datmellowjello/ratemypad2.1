@@ -1,5 +1,3 @@
-const axios = require("axios");
-const router = require ("express").Router();
 const db = require("../../models");
 
 let refreshRatingAvg = (placeid) => {
@@ -27,18 +25,14 @@ let refreshRatingAvg = (placeid) => {
 
 module.exports = function (app) {
   let arr = ['places', 'users', 'comments']
-
   for (let i in arr) {
-
     // Create
     app.post(`/api/${arr[i]}`, function (req, res) {
       db[arr[i]].create(req.body)
         .then(function (table) {
           res.json(table);
-
         });
     });
-
     // Read
     app.get(`/api/${arr[i]}`, function (req, res) {
       db[arr[i]].findAll({})
@@ -46,13 +40,14 @@ module.exports = function (app) {
           res.json(table);
         });
     });
-
     app.get(`/api/${arr[i]}/:id`, function (req, res) {
       db[arr[i]].findByPk(req.params.id)
         .then(function (table) {
           res.json(table);
         });
     });
+
+    
 
     // Find
     app.get(`/api/${arr[i]}/find/:column/:search`, function (req, res) {

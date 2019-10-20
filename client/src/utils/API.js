@@ -16,5 +16,13 @@ export default {
   // Saves a place to the database
   savePlace: function(placeData) {
     return axios.post("/api/places", placeData);
-  }
+  },
+  // Gets the comment with the given id
+  getComments: function() {
+    return axios.get("/api/comments");
+  },
+  // Saves a comment to the database
+  // saveComment: function(id) {
+  //   return axios.post("/api/places", newComment);
+  // }
 };

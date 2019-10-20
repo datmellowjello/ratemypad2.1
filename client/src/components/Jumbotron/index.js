@@ -1,15 +1,22 @@
 import React from "react";
 
 function Jumbotron({ children }) {
-    return (
-      <div
-        style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
-        className="jumbotron"
-      >
-        {children}
-      </div>
-    );
-  }
-  
-  export default Jumbotron;
-  
+  return (
+    <div
+      style={{
+        backgroundColor: "black",
+        paddingTop: 60,
+        textAlign: "center",
+        border: "solid",
+        borderColor: "grey",
+        margin: 10,
+        color: "white"
+      }}
+      className="jumbotron"
+    >
+      {children}
+    </div>
+  );
+}
+
+export default Jumbotron;
